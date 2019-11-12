@@ -1,4 +1,4 @@
-package com.autentia.plugin.sendmail;
+package urbtec.silentmailer;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-public class GMailSender extends javax.mail.Authenticator {
+public class MailSender extends javax.mail.Authenticator {
     private String mailhost;
     private String user;
     private String password;
@@ -30,7 +30,7 @@ public class GMailSender extends javax.mail.Authenticator {
         Security.addProvider(new JSSEProvider());
     }
 
-    public GMailSender(String user, String password, String mailhost, String port) {
+    public MailSender(String user, String password, String mailhost, String port) {
         this.user = user;
         this.password = password;
 
