@@ -35,9 +35,19 @@ public class SendMail extends CordovaPlugin {
 						if (args.has("attachment")) {
 							attachment = args.getString("attachment");
 						}
-
+						
+						String mailhost = "smtp.gmail.com";
+						if (args.has("mailhost")) {
+							mailhost = args.getString("mailhost");
+						}
+						
+						String port = "465";
+						if (args.has("port")) {
+							port = args.getString("port");
+						}
+						
 						// Create the sender
-						GMailSender gmailSender = new GMailSender(sender, password);
+						GMailSender gmailSender = new GMailSender(sender, password, mailhost, port);
 
 						// Send the mail.
 						gmailSender.sendMail(subject, body, sender, recipients, attachment);
