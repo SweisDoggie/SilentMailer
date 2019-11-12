@@ -1,4 +1,4 @@
-package com.autentia.plugin.sendmail;
+package urbtec.silentmailer;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -47,10 +47,10 @@ public class SendMail extends CordovaPlugin {
 						}
 						
 						// Create the sender
-						GMailSender gmailSender = new GMailSender(sender, password, mailhost, port);
+						MailSender mailSender = new MailSender(sender, password, mailhost, port);
 
 						// Send the mail.
-						gmailSender.sendMail(subject, body, sender, recipients, attachment);
+						mailSender.sendMail(subject, body, sender, recipients, attachment);
 
 						// Thread safe callback.
 						callbackContext.success();
