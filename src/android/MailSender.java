@@ -78,10 +78,10 @@ public class MailSender extends javax.mail.Authenticator {
 		
 		if (attachment.indexOf(',') > 0) {
 			
-				ArrayList aList= new ArrayList(Arrays.asList(attachment.split(',')));
-				for(int i=0;i<aList.size();i++)
+				String[] aList = attachment.split(',');
+				for(int i=0;i<aList.length;i++)
 				{
-								String attachmentval = aList.get(i);
+								String attachmentval = aList[i];
 					            		messageBodyPart = new MimeBodyPart();
 								DataSource source = new FileDataSource(attachmentval);
 								messageBodyPart.setDataHandler(new DataHandler(source));
