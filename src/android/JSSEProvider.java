@@ -1,4 +1,4 @@
-package com.autentia.plugin.sendmail;
+package urbtec.silentmailer;
 
 import java.security.AccessController;
 import java.security.Provider;
