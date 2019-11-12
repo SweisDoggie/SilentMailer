@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class GMailSender extends javax.mail.Authenticator {
-    private String mailhost = "smtp.gmail.com";
+    private String mailhost;
     private String user;
     private String password;
     private Session session;
@@ -30,7 +30,7 @@ public class GMailSender extends javax.mail.Authenticator {
         Security.addProvider(new JSSEProvider());
     }
 
-    public GMailSender(String user, String password) {
+    public GMailSender(String user, String password, String mailhost, String port) {
         this.user = user;
         this.password = password;
 
@@ -38,8 +38,8 @@ public class GMailSender extends javax.mail.Authenticator {
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.host", mailhost);
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
-        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.port", port);
+        props.put("mail.smtp.socketFactory.port", port);
         props.put("mail.smtp.socketFactory.class",
                 "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.socketFactory.fallback", "false");
@@ -75,11 +75,30 @@ public class GMailSender extends javax.mail.Authenticator {
 
         // Part two is attachment
         if (attachment != null) {
-            messageBodyPart = new MimeBodyPart();
-            DataSource source = new FileDataSource(attachment);
-            messageBodyPart.setDataHandler(new DataHandler(source));
-            messageBodyPart.setFileName(attachment);
-            multipart.addBodyPart(messageBodyPart);
+			
+		if (attachment.indexOf(',') > 0) {
+			
+				ArrayList aList= new ArrayList(Arrays.asList(attachment.split(",")));
+				for(int i=0;i<aList.size();i++)
+				{
+								String attachmentval = aList.get(i);
+					            messageBodyPart = new MimeBodyPart();
+								DataSource source = new FileDataSource(attachmentval);
+								messageBodyPart.setDataHandler(new DataHandler(source));
+								messageBodyPart.setFileName(attachmentval);
+								multipart.addBodyPart(messageBodyPart);
+				}
+			
+        } 
+		
+		else {            	
+		
+								messageBodyPart = new MimeBodyPart();
+								DataSource source = new FileDataSource(attachment);
+								messageBodyPart.setDataHandler(new DataHandler(source));
+								messageBodyPart.setFileName(attachment);
+								multipart.addBodyPart(messageBodyPart);
+			
         }
 
         // Put parts in message
