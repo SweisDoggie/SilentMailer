@@ -17,7 +17,7 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="SendMail">
+            <feature name="SilentMailer">
                 <param name="android-package" value="urbtec.silentmailer"/>
             </feature>
         </config-file>
@@ -26,8 +26,8 @@
         <source-file src="src/android/libs/additionnal.jar" target-dir="libs" framework="true"/> 
         <source-file src="src/android/libs/httpmime-4.0.jar" target-dir="libs" framework="true"/> 
         <source-file src="src/android/libs/mail.jar" target-dir="libs" framework="true"/> 
-        <source-file src="src/android/JSSEProvider.java" target-dir="src/com/autentia/plugin/sendmail" /> 
-        <source-file src="src/android/GMailSender.java" target-dir="src/com/autentia/plugin/sendmail" /> 
-        <source-file src="src/android/SendMail.java" target-dir="src/com/autentia/plugin/sendmail" />
+        <source-file src="src/android/JSSEProvider.java" target-dir="src/com/urbtec/plugin/silentmail" /> 
+        <source-file src="src/android/GMailSender.java" target-dir="src/com/urbtec/plugin/silentmail" /> 
+        <source-file src="src/android/SendMail.java" target-dir="src/com/urbtec/plugin/silentmail" />
      </platform>          
 </plugin>
