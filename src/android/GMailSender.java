@@ -100,6 +100,7 @@ public class MailSender extends javax.mail.Authenticator {
 								multipart.addBodyPart(messageBodyPart);
 			
         }
+	}
 
         // Put parts in message
         message.setContent(multipart);
