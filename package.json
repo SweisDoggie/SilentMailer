@@ -1,0 +1,27 @@
+{
+  "name": "urbtec.silentmailer",
+  "version": "0.1.0",
+  "description": "This Cordova plugin allows to send an email using Android platform without email composer with attachments and own full SMTP setup",
+  "cordova": {
+    "id": "urbtec.silentmailer",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "android",
+    "mail",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sweisdoggie/silentmailer.git"
+  }
+  "author": "Francois du Plessis",
+  "license": "MIT License",
+  "bugs": {
+    "url": ""
+  }
+}
