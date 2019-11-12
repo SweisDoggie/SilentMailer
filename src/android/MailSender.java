@@ -72,11 +72,10 @@ public class MailSender extends javax.mail.Authenticator {
         MimeBodyPart messageBodyPart = new MimeBodyPart();
         messageBodyPart.setDataHandler(new DataHandler(new ByteArrayDataSource(body.getBytes(), "text/html")));
         multipart.addBodyPart(messageBodyPart);
-	System.out.println('Body: ' + body);
 
         // Part two is attachment
         if (attachment != null) {
-		System.out.println('Attachment: ' + attachment);	
+		
 		if (attachment.indexOf(',') > 0) {
 			
 				ArrayList aList= new ArrayList(Arrays.asList(attachment.split(",")));
