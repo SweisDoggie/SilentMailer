@@ -9,6 +9,7 @@ import org.json.JSONObject;
 public class SendMail extends CordovaPlugin {
 
 	public static final String ACTION_SEND = "send";
+	public static String posind = "";
 
 	public boolean execute(
 		String action,
@@ -46,21 +47,20 @@ public class SendMail extends CordovaPlugin {
 							port = args.getString("port");
 						}
 						
+						posind = "A";
 						// Create the sender
 						MailSender mailSender = new MailSender(sender, password, mailhost, port);
-
+						posind = "B";
 						// Send the mail.
 						mailSender.sendMail(subject, body, sender, recipients, attachment);
-
+						posind = "C";
 						// Thread safe callback.
 						callbackContext.success();
 					} catch (Exception e) {
 						// Catch error.
-						//callbackContext.error(e.getMessage());
-						//callbackContext.error(e.toString());
+						callbackContext.error(e.getMessage());
+						callbackContext.error(e.toString()+" "+posind);
 						
-						e.printStackTrace(); 
-						callbackContext.error(e);
 					}
 				}
 			});
