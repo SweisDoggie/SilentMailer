@@ -49,10 +49,10 @@ public class SendMail extends CordovaPlugin {
 						
 						posind = "A";
 						// Create the sender
-						MailSender mailSender = new MailSender(sender, password, mailhost, port);
+						//MailSender mailSender = new MailSender(sender, password, mailhost, port);
 						posind = "B";
 						// Send the mail.
-						mailSender.sendMail(subject, body, sender, recipients, attachment);
+						//mailSender.sendMail(subject, body, sender, recipients, attachment);
 						posind = "C";
 						// Thread safe callback.
 						callbackContext.success();
